@@ -56,7 +56,7 @@ OS name: "mac os x", version: "10.9.5", arch: "x86_64", family: "mac"
 ```
 
 
-In your home directory, there is a hidden directory named `.m2`. It contains a file named `settings.xml`, which is used to configure various aspects of your maven installation. You have to edit this file and **add your GitHub login name** in a new `<profile></profile>` section. Have a look at the example below. Grab the text, replace `wasadigi` with **your GitHub login** and save the file.
+In your home directory, there is a hidden directory named `.m2`. It contains a file named `settings.xml`, which is used to configure various aspects of your maven installation (you may have to create the file yourself if this is your first time installing or configuring maven). You have to edit this file and **add your GitHub login name** in a new `<profile></profile>` section. Have a look at the example below. Grab the text, replace `wasadigi` with **your GitHub login** and save the file.
 
 ```
 ~/.m2/settings.xml
