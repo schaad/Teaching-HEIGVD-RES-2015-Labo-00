@@ -56,11 +56,46 @@ OS name: "mac os x", version: "10.9.5", arch: "x86_64", family: "mac"
 ```
 
 
-In your home directory, there is a hidden directory named `.m2`. It contains a file named `settings.xml`, which is used to configure various aspects of your maven installation. You have to edit this file and **add your GitHub login name** in a new `<profile></profile>` section. Have a look at the example below. Grab the text, replace `wasadigi` with **your GitHub login** and save the file.
+In your home directory, there is a hidden directory named `.m2`. It contains a file named `settings.xml`, which is used to configure various aspects of your maven installation. On both Unix and Windows systems, the path to the file should be as follows:
 
 ```
 ~/.m2/settings.xml
 ```
+
+If you are unsure of the exact path to this file, type `mvn -X` on the command line to run maven in debug mode.
+The command will produce an error because no goal was specified, but it will also output the path to the `settings.xml` file you are looking for.
+Note the second `[DEBUG]` line which tells you where to find your user's `settings.xml` file:
+
+```
+$ mvn -X
+Apache Maven 3.2.3 (33f8c3e1027c3ddde99d3cdebad2656a31e8fdf4; 2014-08-11T22:58:10+02:00)
+Maven home: /opt/local/share/java/maven3
+Java version: 1.8.0_25, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: utf-8
+OS name: "mac os x", version: "10.10.2", arch: "x86_64", family: "mac"
+[INFO] Error stacktraces are turned on.
+[DEBUG] Reading global settings from /opt/local/share/java/maven3/conf/settings.xml
+[DEBUG] Reading user settings from /Users/your-user/.m2/settings.xml
+[DEBUG] Using local repository at /Users/your-user/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /Users/your-user/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project org.apache.maven:standalone-pom:pom:1: (none)
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 0.097 s
+[INFO] Finished at: 2015-02-20T10:33:16+01:00
+[INFO] Final Memory: 5M/245M
+[INFO] ------------------------------------------------------------------------
+[ERROR] No goals have been specified for this build.
+...
+```
+
+You have to edit this file and **add your GitHub login name** in a new `<profile></profile>` section.
+If this is your first time installing or configuring maven, the file may not exist so you may have to create it yourself.
+Have a look at the example below. Grab the text, replace `wasadigi` with **your GitHub login** and save the file.
 
 ```xml
 <settings>
